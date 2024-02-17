@@ -1,0 +1,23 @@
+[project]
+name = "task4-django"
+version = "0.1.0"
+description = "task4-onxp"
+authors = [
+    {name = "taqiussa", email = "taqiussa@gmail.com"},
+]
+dependencies = [
+    "django>=5",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm.scripts]
+migrate = "python manage.py migrate"
+start = "python manage.py runserver"
+post_init = { composite = ["pdm install", "migrate", "start"] }
+
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
